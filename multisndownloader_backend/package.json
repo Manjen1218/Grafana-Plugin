@@ -1,0 +1,16 @@
+{
+  "name": "multisndownloader_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "tar": "^7.4.3",
+    "tar-stream": "^3.1.7"
+  }
+}
