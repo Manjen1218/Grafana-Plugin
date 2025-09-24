@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "app",
+  "name": "Sku-Menu",
+  "id": "accton-skumenu-app",
+  "info": {
+    "keywords": ["app"],
+    "description": "Adds a custom nav link to a dashboard.",
+    "author": {
+      "name": "Accton"
+    },
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "includes": [
+    {
+      "type": "page",
+      "name": "SKU Menu",
+      "path": "/d/2a2a2c67-e2cc-4523-8b5a-615e1cdb5e5d/sku-level?orgId=1",
+      "icon": "play",
+      "addToNav": true,
+      "defaultNav": true
+    }
+  ],
+  "dependencies": {
+    "grafanaDependency": ">=10.4.0",
+    "plugins": []
+  }
+}
