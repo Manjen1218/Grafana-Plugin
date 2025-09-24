@@ -1,0 +1,46 @@
+{
+  "name": "accton-gantt-panel",
+  "version": "0.8.1",
+  "description": "A Gantt visualization for Grafana",
+  "keywords": [
+    "grafana",
+    "gantt"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "sign": "grafana-toolkit plugin:sign"
+  },
+  "homepage": "https://grafana.com/plugins/marcusolsson-gantt-panel",
+  "bugs": "https://github.com/marcusolsson/grafana-gantt-panel/issues",
+  "repository": "github:marcusolsson/grafana-gantt-panel",
+  "author": {
+    "name": "Marcus Olsson",
+    "email": "marcus.olsson@hey.com",
+    "url": "https://marcus.se.net"
+  },
+  "dependencies": {
+    "@tippyjs/react": "^4.1.0",
+    "@types/humanize-duration": "^3.18.1",
+    "dayjs": "^1.10.4",
+    "grafana-plugin-support": "0.4.0",
+    "humanize-duration": "^3.25.1",
+    "moment-duration-format": "^2.3.2",
+    "usehooks-ts": "^3.1.1"
+  },
+  "devDependencies": {
+    "@emotion/css": "11.7.1",
+    "@grafana/data": "9.0.1",
+    "@grafana/runtime": "^9.0.1",
+    "@grafana/toolkit": "9.0.1",
+    "@grafana/ui": "^9.0.1",
+    "@types/d3": "^6.2.0",
+    "@types/moment-duration-format": "^2.2.2"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
