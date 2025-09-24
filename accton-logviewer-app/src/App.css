@@ -1,0 +1,26 @@
+#root {
+  width: 100vw;  /* full viewport width */
+  height: 100vh; /* full viewport height */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.box {
+  flex: 1;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  color: rgb(0, 0, 0);
+}
+
+#box3-part {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
