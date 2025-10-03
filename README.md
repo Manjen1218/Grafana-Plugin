@@ -2,8 +2,8 @@
 
 This repository contains backend, frontend, and source code for custom Grafana plugins.
 
-DEMO [Video](https://drive.google.com/file/d/1Q_NFriSFPqUjvDaOvSNTBLASRj-AE40s/view?usp=drivesdk)
-[Powerpoint](https://drive.google.com/file/d/1YWPod_hQDawSS-ZtEsZr415sCYvMYHFj/view?usp=drivesdk)
+DEMO: [Video](https://drive.google.com/file/d/1Q_NFriSFPqUjvDaOvSNTBLASRj-AE40s/view?usp=drivesdk)
+ [Powerpoint](https://drive.google.com/file/d/1YWPod_hQDawSS-ZtEsZr415sCYvMYHFj/view?usp=drivesdk)
 
 Within this repository, we have the following:
 1. [accton-react-app](./accton-react-app/)
