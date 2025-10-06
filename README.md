@@ -1,10 +1,11 @@
 # GrafanaPlugins
 
+[From Accton Technology Corporation] Please Respect Intellectual Property Rights!
+
 This repository contains backend, frontend, and source code for custom Grafana plugins.
 
-DEMO: [Video](https://drive.google.com/file/d/1Q_NFriSFPqUjvDaOvSNTBLASRj-AE40s/view?usp=drivesdk)
- [Powerpoint](https://drive.google.com/file/d/1x0AwzA996Ck3HsGatSptwUSiBi_CXVdR/view?usp=sharing) 
-Please Respect Intellectual Property Rights!
+DEMO: [Video](https://drive.google.com/file/d/1h5CH8q7yaH8EqP9QwJSjmo0Yy2w-zU5x/view?usp=drive_link)
+
 
 Within this repository, we have the following:
 1. [accton-react-app](./accton-react-app/)
