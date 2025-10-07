@@ -1,6 +1,6 @@
 # GrafanaPlugins
 
-A **clean-room**, generic example service.
+A **clean-room**, generic example service, reimplementation inspired by Accton company project, with no confidential content.
 This project is **not derived from any company code or proprietary software**.
 It is designed purely as an open-source educational example.
 
