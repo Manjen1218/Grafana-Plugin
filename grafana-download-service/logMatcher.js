@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 
 const router = Router();
-const MOUNT_ROOT = '/home/template/remote_mount/-APL';
+const MOUNT_ROOT = '/home/template/remote_mount';
 
 function findMatchingDir(basePath, searchPart) {
   const entries = fs.readdirSync(basePath, { withFileTypes: true });

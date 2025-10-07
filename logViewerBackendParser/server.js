@@ -1,44 +1,32 @@
 import express from 'express';
 import parseLogRoute from './testParser.js';
-import logFilesRoute from './logFilesRoute.js'
+import logFilesRoute from './logFilesRoute.js';
 import cors from 'cors';
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs-extra';
 
 const app = express();
-const PORT = 5000;
+const PORT = Number(process.env.PORT || 5000);
 
-app.use(cors()); // allow React dev server to fetch from here
+app.use(cors());
 app.use('/api', parseLogRoute);
 app.use('/api', logFilesRoute);
 
-app.get('/api/files/:filename', (req, res) => {
-  const filename = req.params.filename;
-
-  // Sanitize filename to prevent directory traversal attacks
-  if (filename.includes('..') || filename.includes('/')) {
-    return res.status(400).send('Invalid filename');
-  }
-
-  const baseDir = path.resolve('../react_log_display/public'); // Only allow files in this dir
-  const requestedPath = path.resolve(baseDir, filename);  
-  
-  // Check if file exists
-  fs.stat(requestedPath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      return res.status(404).send('File not found');
-    }
-
-    // Set headers to prompt download in browser
-    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+app.get('/api/files/:filename', async (req, res) => {
+  const filename = String(req.params.filename || '');
+  if (!filename || filename.includes('..') || filename.includes('/')) return res.status(400).send('Invalid filename');
+  const baseDir = path.resolve(process.cwd(), '..', 'react_log_display', 'public');
+  const requested = path.resolve(baseDir, filename);
+  if (!requested.startsWith(baseDir)) return res.status(400).send('Invalid filename');
+  try {
+    const stat = await fs.stat(requested);
+    if (!stat.isFile()) return res.status(404).send('File not found');
+    res.setHeader('Content-Disposition', `attachment; filename="${path.basename(requested)}"`);
     res.setHeader('Content-Type', 'application/octet-stream');
-
-    // Stream the file to client
-    const readStream = fs.createReadStream(requestedPath);
-    readStream.pipe(res);
-  });
+    fs.createReadStream(requested).pipe(res);
+  } catch (err) {
+    return res.status(404).send('File not found');
+  }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Backend server running on http://localhost:${PORT}`));

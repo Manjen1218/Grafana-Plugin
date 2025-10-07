@@ -14,7 +14,7 @@ router.get('/logs', (req, res) => {
     return res.status(400).send('Invalid file path');
   }
 
-  const filePath = filename.replace(/^\/mnt\/FTP_log/, MOUNT_ROOT);
+  const filePath = filename.replace(/^\/your\/folder/, MOUNT_ROOT);
 
   fs.access(filePath, fs.constants.R_OK, (err) => {
     if (err) {

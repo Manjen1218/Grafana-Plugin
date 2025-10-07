@@ -57,7 +57,7 @@ function App() {
     const name = params.get('name');
 
     if (sku && ts && date && name) {
-      fetch(`http://192.168.50.206:3001/api/log-matcher?sku=${encodeURIComponent(sku)}&ts=${encodeURIComponent(ts)}&date=${encodeURIComponent(date)}&name=${encodeURIComponent(name)}`)
+      fetch(`http://127.0.0.1:3000/api/log-matcher?sku=${encodeURIComponent(sku)}&ts=${encodeURIComponent(ts)}&date=${encodeURIComponent(date)}&name=${encodeURIComponent(name)}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error('Failed to fetch file path');
@@ -87,7 +87,7 @@ function App() {
 
         // Create and click a link to download using native browser behavior
         const link = document.createElement('a');
-        link.href = `http://192.168.50.206:3001/api/files/?filepath=${encodeURIComponent(selectedFileName)}`;
+        link.href = `http://127.0.0.1:3000/api/files/?filepath=${encodeURIComponent(selectedFileName)}`;
         link.download = selectedFileName.split('/').pop() ?? 'download.cap';
         document.body.appendChild(link);
         link.click();
@@ -100,16 +100,16 @@ function App() {
   }, [selectedFileName]);
 
   useEffect(() => {
-      if (!selectedFileName) return; // Skip fetch if no file name
-      fetch(`http://192.168.50.206:3001/api/parsed-test-log/?filepath=${selectedFileName}`)
-        .then(res => res.json())
-        .then((data: TestCase[]) => {
-          setAllTests(data);
-          setFailedTests(data.filter(tc => 
-            tc.status.toLowerCase().includes('fail') && !tc.has_subtests));
-        })
-        .catch(err => console.error('Failed to fetch test cases:', err));
-    }, [selectedFileName]);
+    if (!selectedFileName) return; // Skip fetch if no file name
+    fetch(`http://127.0.0.1:3000/api/parsed-test-log/?filepath=${selectedFileName}`)
+      .then(res => res.json())
+      .then((data: TestCase[]) => {
+        setAllTests(data);
+        setFailedTests(data.filter(tc =>
+          tc.status.toLowerCase().includes('fail') && !tc.has_subtests));
+      })
+      .catch(err => console.error('Failed to fetch test cases:', err));
+  }, [selectedFileName]);
 
   // Fetch test cases once on mount
   useEffect(() => {
@@ -117,7 +117,7 @@ function App() {
 
     const fetchLog = async () => {
       try {
-        const res = await fetch(`http://192.168.50.206:3001/api/logs/?filename=${encodeURIComponent(selectedFileName.trim())}`);
+        const res = await fetch(`http://127.0.0.1:3000/api/logs/?filename=${encodeURIComponent(selectedFileName.trim())}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const text = await res.text();
         setLogContent(text);
@@ -207,7 +207,7 @@ function App() {
     const hasSubtests = !!test.has_subtests;
     const isSubtest = !!test.test_name;
 
-    return isFailed && ( (!hasSubtests && !isSubtest) || isSubtest );
+    return isFailed && ((!hasSubtests && !isSubtest) || isSubtest);
   };
 
   const goToFail = (direction: 'next' | 'prev') => {
@@ -394,13 +394,13 @@ function App() {
       <div
         ref={middlePaneRef}
         style={{
-        flex: '0 1 55vw',  // allow to grow but not force it
-        minWidth: 150,
-        borderRight: '2px solid black',
-        display: 'flex',
-        flexDirection: 'column',
-        boxSizing: 'border-box',
-        overflow: 'hidden', // no scroll here
+          flex: '0 1 55vw',  // allow to grow but not force it
+          minWidth: 150,
+          borderRight: '2px solid black',
+          display: 'flex',
+          flexDirection: 'column',
+          boxSizing: 'border-box',
+          overflow: 'hidden', // no scroll here
         }}
       >
         <div style={{ flex: 1, overflow: 'auto', minHeight: 0 }}>

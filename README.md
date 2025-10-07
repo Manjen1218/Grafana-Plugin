@@ -23,13 +23,13 @@ This repository provides modular components and utilities to support enhanced Gr
 ## Repository Structure
 ```
 Grafana-Plugin/  
-├── accton-react-app/ # Front-end app(s) embedded in Grafana dashboards  
-├── accton-skumenu-app/ # Sidebar or navigation menu modules  
+├── react-app/ # Front-end app(s) embedded in Grafana dashboards  
+├── skumenu-app/ # Sidebar or navigation menu modules  
 ├── error_analysis_backend/ # API service for error analysis data  
 ├── gantt-panel/ # Custom Grafana panel (Gantt chart)  
 ├── grafana-download-service/ # Service to package & download logs  
-├── accton-multisndownloader-app/ # Utility to batch-download test data (by serial number)  
-├── accton-logviewer-app/ # Log viewing UI + back-end parsing  
+├── multisndownloader-app/ # Utility to batch-download test data (by serial number)  
+├── logviewer-app/ # Log viewing UI + back-end parsing  
 ├── nginx_grafana_proxy/ # Sample proxy config for intercepting Grafana downloads  
 ├── wo_comparison/ # Dashboard for comparing multiple work orders  
 ├── README.md  

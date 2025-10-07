@@ -7,10 +7,10 @@ router.use(cors()); // optional if you're accessing from a frontend
 
 async function getConnection(database) {
   return await mysql.createConnection({
-    host: '192.168.50.203',
+    host: '',
     port: 3306,
-    user: 'sql_dev',
-    password: '13301330',
+    user: '',
+    password: '',
     database: database,
     timezone: 'Z'
   });
