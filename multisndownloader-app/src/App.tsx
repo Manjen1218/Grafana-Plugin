@@ -26,7 +26,7 @@ export default function FileDropZone() {
   const goBack = () => setCurrentStep((s) => Math.max(s - 1, 0));
 
   useEffect(() => {
-    fetch("http://192.168.50.206:3001/databases")
+    fetch("http://localhost:3000/databases")
       .then((res) => res.json())
       .then((data) => setSkuList(Array.isArray(data.skus) ? data.skus : []))
       .catch(() => setSkuList([]));
@@ -36,7 +36,7 @@ export default function FileDropZone() {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("http://192.168.50.206:3001/upload-file", {
+      const response = await fetch("http://localhost:3000/upload-file", {
         method: "POST",
         body: formData,
       });
@@ -101,7 +101,7 @@ export default function FileDropZone() {
         throw new Error("Too many files to download at once. Please split up the SNs into batches.");
       }
   
-      const response = await fetch("http://192.168.50.201:3001/download_multi_sn_stream", {
+      const response = await fetch("http://localhost:3000/download_multi_sn_stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
