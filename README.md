@@ -6,7 +6,7 @@ It is designed purely as an open-source educational example.
 
 This repository contains backend, frontend, and source code for custom Grafana plugins.
 
-DEMO: [Video](https://drive.google.com/file/d/1h5CH8q7yaH8EqP9QwJSjmo0Yy2w-zU5x/view?usp=drive_link)
+MY DEMO: [Video](https://drive.google.com/file/d/1h5CH8q7yaH8EqP9QwJSjmo0Yy2w-zU5x/view?usp=drive_link)
 
 ## Overview
 
